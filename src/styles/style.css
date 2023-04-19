@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+:root {
+    --accent-color: #2E4F4F;
+    --foreground-color: #0E8388;
+    --background-color: #2C3333;
+    --text-color: #CBE4DE;
+    --gray-dark-color: #66757F;
+    --gray-light-color: #edeff1;
+  }
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+  }
+
+  .loading {
+    position: sticky;
+    top: 0;
+  }
