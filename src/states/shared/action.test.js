@@ -19,7 +19,7 @@ const fakeThreadsResponse = [
     title: 'Thread Pertama',
     body: 'Ini adalah thread pertama',
     category: 'General',
-    createdAt: '2021-06-21T07:00:00.000Z',
+    createdAt: '2023-04-21T07:00:00.000Z',
     ownerId: 'users-1',
     upVotesBy: [],
     downVotesBy: [],
@@ -30,7 +30,7 @@ const fakeThreadsResponse = [
     title: 'Thread Kedua',
     body: 'Ini adalah thread kedua',
     category: 'General',
-    createdAt: '2021-06-21T07:00:00.000Z',
+    createdAt: '2023-04-21T07:00:00.000Z',
     ownerId: 'users-2',
     upVotesBy: [],
     downVotesBy: [],
@@ -52,9 +52,9 @@ const fakeUsersResponse = [
     avatar: 'https://generated-image-url.jpg',
   },
   {
-    id: 'fulan',
-    name: 'Si Fulan',
-    email: 'fulan@example.com',
+    id: 'dio_als',
+    name: 'Dio Als',
+    email: 'dioals@example.com',
     avatar: 'https://generated-image-url.jpg',
   },
 ];
@@ -78,8 +78,8 @@ describe('asyncPopulateUerAndThreads thunk', () => {
   it('should dispatch action correctly when data fetching success', async () => {
     // arrange
     // stub implementation
-    api.getUsers = () => Promise.resolve(fakeUsersResponse);
-    api.getThreads = () => Promise.resolve(fakeThreadsResponse);
+    api.getAllUsers = () => Promise.resolve(fakeUsersResponse);
+    api.getAllThread = () => Promise.resolve(fakeThreadsResponse);
     // mock dispatch
     const dispatch = jest.fn();
 
@@ -96,8 +96,8 @@ describe('asyncPopulateUerAndThreads thunk', () => {
   it('should dispatch action and call alert correctly when data fetching failed', async () => {
     // arrange
     // stub implementation
-    api.getUsers = () => Promise.reject(fakeErrorResponse);
-    api.getThreads = () => Promise.reject(fakeErrorResponse);
+    api.getAllUsers = () => Promise.reject(fakeErrorResponse);
+    api.getAllThread = () => Promise.reject(fakeErrorResponse);
     // mock dispatch
     const dispatch = jest.fn();
     // mock alert
@@ -108,7 +108,7 @@ describe('asyncPopulateUerAndThreads thunk', () => {
 
     // assert
     expect(dispatch).toHaveBeenCalledWith(showLoading());
-    expect(window.alert).toHaveBeenCalledWith(fakeErrorResponse.message);
     expect(dispatch).toHaveBeenCalledWith(hideLoading());
+    expect(window.alert).toHaveBeenCalledWith(fakeErrorResponse.message);
   });
 });

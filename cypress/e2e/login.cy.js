@@ -45,6 +45,6 @@ describe('Login spec', () => {
 
     // memverifikasi bahwa elemen yang berada di homepage ditampilkan
     // cy.get('nav').contains(/^Home$/).should('be.visible');
-    cy.get('button').contains('Sign out').should('be.visible');
+    cy.get('p').contains('Welcome').should('be.visible');
   });
 });

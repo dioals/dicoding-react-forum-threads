@@ -1,23 +1,24 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import ActionButton from '../components/action/ActionButton';
+import ActionButton from '../components/ActionButton';
 
 export default {
   title: 'Example/ActionButton',
   component: ActionButton,
 };
 
-const Template = (args) => <ActionButton {...args} />;
+function Template(args) {
+  return <ActionButton {...args} />;
+}
 
-export const TypeLike = Template.bind({});
-TypeLike.args = {
-  id: 'comment-fJ579RDuAsZdB4ER',
+export const UpVote = Template.bind({});
+UpVote.args = {
   count: 1,
-  type: 'like',
+  type: 'up',
 };
 
-export const TypeDisLike = Template.bind({});
-TypeDisLike.args = {
-  id: 'comment-fJ579RDuAsZdB4ER',
+export const DownVote = Template.bind({});
+DownVote.args = {
   count: 1,
-  type: 'dislike',
+  type: 'down',
 };
