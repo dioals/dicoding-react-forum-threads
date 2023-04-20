@@ -21,10 +21,6 @@
         "cypress"
     ],
     "rules": {
-        "linebreak-style": [
-            "error",
-            "windows"
-        ],
         "no-alert": "off",
         "no-underscore-dangle":  ["error", { "allow": ["_place"] }]
     }

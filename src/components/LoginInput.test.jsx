@@ -8,7 +8,7 @@
  */
 
 import React from 'react';
-import { render, screen, act } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import LoginInput from './LoginInput';
 import '@testing-library/jest-dom';
