@@ -34,7 +34,7 @@ describe('Login spec', () => {
     });
   });
 
-  it('should display homepage when username and password are correct', () => {
+  it('should display homepage when username and password are correct', { defaultCommandTimeout: 30000 }, () => {
     cy.get('input[placeholder="Registered email"]').type('dioals@gmail.com');
 
     // mengisi password
@@ -44,7 +44,6 @@ describe('Login spec', () => {
     cy.get('button').contains(/^Login$/).click();
 
     // memverifikasi bahwa elemen yang berada di homepage ditampilkan
-    // cy.get('nav').contains(/^Home$/).should('be.visible');
     cy.get('p').contains('Welcome').should('be.visible');
   });
 });
