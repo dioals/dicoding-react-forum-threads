@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { userProp } from '../../utils/propHelper';
+import ThreadCategory from '../styled/ThreadCategory';
 
 function ThreadItemHeader({
   user, id, title, category,
@@ -21,9 +22,9 @@ function ThreadItemHeader({
         </b>
       </div>
       <Link to={`/thread/${id}`}><h4 className="thread-item_title">{title}</h4></Link>
-      <span className="thread-item_category">
+      <ThreadCategory>
         {`#${category}`}
-      </span>
+      </ThreadCategory>
     </header>
   );
 }

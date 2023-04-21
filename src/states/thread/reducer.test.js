@@ -5,9 +5,10 @@
  *  - should return the initial state when given by unknown action
  *  - should return the threads when given by RECEIVE_THREAD action
  *  - should return the threads with the new thread when given by CREATE_THREAD action
- *  - should return the threads with the toggled like thread when given by UPVOTE_THREAD action
- *  - should return the threads with the toggled like thread when given by DOWNVOTE_THREAD action
- *  - should return the threads with the toggled like thread when given by CLEAR_VOTE_THREAD action
+ *  - return threads include upVotesBy {action.payload.userId} when given UPVOTE_THREAD action
+ *  - return threads include downVotesBy {action.payload.userId} when given DOWNVOTE_THREAD action
+ *  - return threads exclude {action.payoad.userId} from upVotesBy
+ *    and downVotesBy when given CLEAR_VOTE_THREAD action
  *
  */
 
@@ -116,7 +117,7 @@ describe('threadReducer function', () => {
     expect(nextState).toEqual([action.payload.thread, ...initialState]);
   });
 
-  it('should return the threads with the new thread when given by UPVOTE_THREAD action', () => {
+  it('return threads include upVotesBy {action.payload.userId} when given UPVOTE_THREAD action', () => {
     // arrange
     const initialState = [
       {
@@ -151,7 +152,7 @@ describe('threadReducer function', () => {
     ]);
   });
 
-  it('should return the threads with the new thread when given by DOWNVOTE_THREAD action', () => {
+  it('return threads include downVotesBy {action.payload.userId} when given DOWNVOTE_THREAD action', () => {
     // arrange
     const initialState = [
       {
@@ -186,7 +187,7 @@ describe('threadReducer function', () => {
     ]);
   });
 
-  it('should return the threads with the new thread when given by CLEAR_VOTE_THREAD action', () => {
+  it('return threads exclude {action.payoad.userId} from upVotesBy and downVotesBy when given CLEAR_VOTE_THREAD action', () => {
     // arrange
     const initialState = [
       {

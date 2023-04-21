@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { detailProp } from '../../utils/propHelper';
 import formatDate from '../../utils/utils';
+import ThreadCategory from '../styled/ThreadCategory';
 
 function ThreadDetailHeader({ detail }) {
   const { name, avatar } = detail.owner;
@@ -21,9 +22,9 @@ function ThreadDetailHeader({ detail }) {
       <h2 className="thread-header_title">
         {title}
       </h2>
-      <span className="thread-item_category">
+      <ThreadCategory>
         {`#${category}`}
-      </span>
+      </ThreadCategory>
     </header>
   );
 }
