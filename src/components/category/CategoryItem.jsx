@@ -1,28 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { CategoryItemSelected, CategoryItemNormal } from '../styled/CategoryItem';
 
 function CategoryItem({
   category, onSelect, unSelect, selected,
 }) {
   return (
     (category === selected ? (
-      <button
-        type="button"
-        className="category-item_selected"
+      <CategoryItemSelected
         onClick={unSelect}
         value={category}
       >
         {`#${category}`}
-      </button>
+      </CategoryItemSelected>
     ) : (
-      <button
-        type="button"
-        className="category-item"
+      <CategoryItemNormal
         onClick={onSelect}
         value={category}
       >
         {`#${category}`}
-      </button>
+      </CategoryItemNormal>
     )));
 }
 
