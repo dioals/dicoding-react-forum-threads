@@ -9,7 +9,7 @@ import { asyncAddComment } from '../../states/threadDetail/actions';
 function ThreadDetailComment({ detail }) {
   const { comments } = detail;
   const dispatch = useDispatch();
-  const onAddComment = (content) => {
+  const onAddComment = ({ content }) => {
     dispatch(asyncAddComment(detail.id, content));
   };
   return (
@@ -20,7 +20,7 @@ function ThreadDetailComment({ detail }) {
       </div>
       <div className="thread-comment_list">
         <h3>{`Comments (${comments.length})`}</h3>
-        <CommentList onAddComment={onAddComment} />
+        <CommentList comments={comments} />
       </div>
     </div>
   );
